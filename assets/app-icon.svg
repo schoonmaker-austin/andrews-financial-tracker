@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Andrew's Financial Tracker</title>
+  <desc id="desc">A chartreuse ledger mark on a near-black square.</desc>
+  <rect width="512" height="512" rx="72" fill="#171813"/>
+  <rect x="88" y="88" width="336" height="336" rx="12" fill="#dfff3f"/>
+  <path d="M150 346V166h72v180M220 346V230h72v116M290 346v-64h72v64" fill="none" stroke="#171813" stroke-width="28" stroke-linejoin="miter"/>
+  <path d="M130 366h252" stroke="#171813" stroke-width="20"/>
+</svg>

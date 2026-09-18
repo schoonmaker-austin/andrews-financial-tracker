@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:19:34Z",
+  "title": "Design System: Financial Reset Planner — The Reset Ledger",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Matte Ledger Ink",
+        "canonical": "#171813",
+        "tonalRamp": ["#080906", "#11120e", "#171813", "#363730", "#5f6057", "#92938a", "#c7c8c0", "#f0f0eb"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#615f54",
+        "tonalRamp": ["#1d1c18", "#34322c", "#4a4840", "#615f54", "#858278", "#aaa79e", "#d0cdc5", "#f3f1ec"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Ledger Surface",
+        "canonical": "#eee9dc",
+        "tonalRamp": ["#27251f", "#4d4940", "#777168", "#a19b90", "#c8c2b7", "#ddd7cb", "#eee9dc", "#faf7ef"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#fffdf5",
+        "tonalRamp": ["#292720", "#514e45", "#7c786e", "#aaa69b", "#d2cec3", "#ebe7dc", "#fffdf5", "#fffefb"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Ledger Rule",
+        "canonical": "#b7b2a5",
+        "tonalRamp": ["#24221d", "#45423a", "#69655b", "#8d887d", "#b7b2a5", "#cfcbc1", "#e6e2da", "#f7f5f0"]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Field Paper",
+        "canonical": "#fffef9",
+        "tonalRamp": ["#292821", "#514f47", "#7c7970", "#aaa79f", "#d2d0c8", "#ebe9e2", "#fffef9", "#fffffd"]
+      },
+      "chartreuse": {
+        "role": "primary",
+        "displayName": "Electric Chartreuse",
+        "canonical": "#dfff3f",
+        "tonalRamp": ["#252b08", "#46510e", "#687917", "#8da220", "#b1cb2a", "#d0ee36", "#dfff3f", "#f3ffc0"]
+      },
+      "chartreuse-deep": {
+        "role": "primary",
+        "displayName": "Pressed Chartreuse",
+        "canonical": "#caeb2d",
+        "tonalRamp": ["#222707", "#414b0c", "#617012", "#839718", "#a5be20", "#bedb29", "#caeb2d", "#eff9b8"]
+      },
+      "tomato": {
+        "role": "secondary",
+        "displayName": "Tomato Mark",
+        "canonical": "#f4573d",
+        "tonalRamp": ["#32100b", "#5d1f16", "#892e20", "#b63e2c", "#d84b35", "#f4573d", "#fa9685", "#ffddd6"]
+      },
+      "tomato-soft": {
+        "role": "secondary",
+        "displayName": "Tomato Slip",
+        "canonical": "#ffe0d8",
+        "tonalRamp": ["#2e1713", "#5b312a", "#895047", "#b87469", "#dc9f94", "#efc1b7", "#ffe0d8", "#fff5f2"]
+      },
+      "utility-blue": {
+        "role": "tertiary",
+        "displayName": "Utility Blue",
+        "canonical": "#3659d9",
+        "tonalRamp": ["#0b153f", "#142875", "#1e3cac", "#2a4dcc", "#3659d9", "#7088e7", "#aebcf3", "#e5eafe"]
+      },
+      "utility-blue-soft": {
+        "role": "tertiary",
+        "displayName": "Utility Blue Slip",
+        "canonical": "#e3e9ff",
+        "tonalRamp": ["#1d2340", "#3a436f", "#5f699b", "#8993c1", "#b2bce2", "#d2daf4", "#e3e9ff", "#f5f7ff"]
+      },
+      "positive": {
+        "role": "secondary",
+        "displayName": "Positive Green",
+        "canonical": "#167458",
+        "tonalRamp": ["#06251b", "#0b4433", "#106149", "#167458", "#3b9278", "#73b7a2", "#aed8ca", "#e5f5ef"]
+      },
+      "danger": {
+        "role": "secondary",
+        "displayName": "Danger Red",
+        "canonical": "#b53125",
+        "tonalRamp": ["#310b07", "#5b1711", "#86231a", "#a62c21", "#b53125", "#d87368", "#eca9a1", "#fae2de"]
+      },
+      "warning": {
+        "role": "secondary",
+        "displayName": "Warning Ochre",
+        "canonical": "#765600",
+        "tonalRamp": ["#241900", "#432f00", "#634800", "#765600", "#9a7a26", "#bea454", "#decf91", "#f7efd3"]
+      },
+      "warning-soft": {
+        "role": "secondary",
+        "displayName": "Warning Slip",
+        "canonical": "#ffedaa",
+        "tonalRamp": ["#2d270e", "#584d1e", "#847632", "#b09f50", "#d7c877", "#ecdf93", "#ffedaa", "#fff8dd"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "View Poster", "purpose": "Oversized application-view titles." },
+      "poster": { "displayName": "Diagnosis Poster", "purpose": "The primary monthly diagnosis on chartreuse." },
+      "headline": { "displayName": "Action Headline", "purpose": "Next-step and section headings." },
+      "body": { "displayName": "Ledger Body", "purpose": "Plain-language explanations and instructions." },
+      "label": { "displayName": "Receipt Label", "purpose": "Uppercase metadata and compact eyebrows." },
+      "control": { "displayName": "Utility Control", "purpose": "Buttons, navigation, and tabs." }
+    },
+    "shadows": [
+      {
+        "name": "setup-ambient",
+        "value": "0 24px 60px rgba(23,24,19,.16)",
+        "purpose": "The borderless two-part setup workbook is the sole structurally elevated surface."
+      },
+      {
+        "name": "toast-ambient",
+        "value": "0 18px 44px rgba(23,24,19,.14)",
+        "purpose": "Temporary local feedback above the ledger surface."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ledger-arrival",
+        "value": "360ms cubic-bezier(.16,1,.3,1); clip-path inset(0 0 14% 0) → inset(0); saturate(.78) → saturate(1)",
+        "purpose": "User-triggered navigation and setup-step changes only; initial routing passes animation off."
+      },
+      {
+        "name": "setup-progress",
+        "value": "transform 240ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Movement through the three setup questions."
+      },
+      {
+        "name": "control-lift",
+        "value": "background-color 150ms ease, color 150ms ease, transform 150ms ease; hover translateY(-2px)",
+        "purpose": "Brief tactile feedback on buttons."
+      },
+      {
+        "name": "navigation-state",
+        "value": "color 150ms ease, background-color 150ms ease, border-color 150ms ease",
+        "purpose": "Immediate route hover and active feedback."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none; transition: none; scroll-behavior: auto",
+        "purpose": "Disables CSS motion; JavaScript also skips ledger arrival when reduced motion is requested."
+      }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "1100px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "narrow-mobile", "value": "380px" },
+      { "name": "reviewed-phone", "value": "390px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The decisive ledger action: dark ink, chartreuse type, and a brief hover lift.",
+      "html": "<button class=\"ds-button ds-button-primary\">Update my numbers</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid var(--ink,#171813);border-radius:2px;font:760 12px/1.4 Manrope,ui-sans-serif,sans-serif;letter-spacing:.01em;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,transform 150ms ease}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}.ds-button-primary{background:var(--ink,#171813);color:var(--acid,#dfff3f)}.ds-button-primary:hover{background:var(--acid,#dfff3f);color:var(--ink,#171813)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A paper utility action with an ink border and chartreuse hover.",
+      "html": "<button class=\"ds-button ds-button-secondary\">Edit my numbers</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid var(--ink,#171813);border-radius:2px;font:760 12px/1.4 Manrope,ui-sans-serif,sans-serif;letter-spacing:.01em;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,transform 150ms ease}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}.ds-button-secondary{background:var(--paper,#fffdf5);color:var(--ink,#171813)}.ds-button-secondary:hover{background:var(--acid,#dfff3f)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "A subordinate destructive action with explicit danger color and a soft tomato hover.",
+      "html": "<button class=\"ds-button ds-button-danger\">Start over</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid;border-radius:2px;font:760 12px/1.4 Manrope,ui-sans-serif,sans-serif;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,transform 150ms ease}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}.ds-button-danger{background:var(--paper,#fffdf5);color:var(--danger,#b53125);border-color:var(--danger,#b53125)}.ds-button-danger:hover{background:var(--tomato-soft,#ffe0d8)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "A low-priority paper action whose soft rule strengthens only on hover.",
+      "html": "<button class=\"ds-button ds-button-quiet\">Remove</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 10px;border:1px solid var(--line,#b7b2a5);border-radius:2px;font:760 11px/1.4 Manrope,ui-sans-serif,sans-serif;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,transform 150ms ease}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}.ds-button-quiet{background:var(--paper,#fffdf5);color:var(--ink,#171813)}.ds-button-quiet:hover{background:var(--paper,#fffdf5);border-color:var(--ink,#171813)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Financial Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "A square-edged amount field whose prefix and input share one focusable wrapper.",
+      "html": "<label class=\"ds-field\">Checking balance<span class=\"ds-money\"><span>$</span><input inputmode=\"decimal\" placeholder=\"Unknown\"></span></label>",
+      "css": ".ds-field{display:grid;gap:9px;color:var(--ink,#171813);font:720 12px/1.5 Manrope,ui-sans-serif,sans-serif}.ds-money{display:grid;grid-template-columns:auto 1fr;align-items:center;min-height:45px;overflow:hidden;border:1px solid #8c887b;border-radius:2px;background:#fffef9}.ds-money:hover{border-color:var(--ink,#171813)}.ds-money>span{padding:0 10px;color:var(--muted,#615f54);font-size:13px}.ds-money input{width:100%;min-width:0;min-height:43px;padding:10px 12px;border:0;background:transparent;color:var(--ink,#171813);font:inherit;caret-color:var(--blue,#3659d9)}.ds-money input::placeholder{color:#6f6b5e;opacity:1}.ds-money:focus-within{outline:3px solid var(--blue,#3659d9);outline-offset:3px}.ds-money input:focus-visible{outline:0}"
+    },
+    {
+      "name": "Ledger Navigation",
+      "kind": "nav",
+      "refersTo": "nav-active",
+      "description": "A matte-black ledger cover with one chartreuse active route.",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-nav-item ds-active\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\"/></svg>Home</button><button class=\"ds-nav-item\">Quick setup</button></nav>",
+      "css": ".ds-nav{display:grid;gap:2px;padding:18px;background:var(--ink,#171813)}.ds-nav-item{display:flex;align-items:center;gap:10px;width:100%;min-height:45px;padding:11px 12px;border:1px solid transparent;border-radius:2px;background:transparent;color:#d3d0c4;text-align:left;font:620 13px/1.4 Manrope,ui-sans-serif,sans-serif;cursor:pointer;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease}.ds-nav-item svg{width:17px;height:17px}.ds-nav-item:hover{background:#2a2b25;color:var(--paper,#fffdf5);border-color:#494a42}.ds-nav-item.ds-active{background:var(--acid,#dfff3f);color:var(--ink,#171813);border-color:var(--acid,#dfff3f)}.ds-nav-item:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-nav-item{transition:none}}"
+    },
+    {
+      "name": "Diagnosis Poster",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "The chartreuse monthly diagnosis with a black three-figure rail.",
+      "html": "<article class=\"ds-diagnosis\"><div class=\"ds-copy\"><span class=\"ds-stamp\">RESET / MONTH</span><h2>Your picture is taking shape</h2><p><strong>Start with what you know.</strong></p><p>A skipped amount stays unknown. You can add it whenever you’re ready.</p></div><div class=\"ds-values\"><div><span>Monthly income</span><strong>Not entered</strong></div><div><span>Monthly costs + debt</span><strong>Not complete</strong></div><div><span>Estimated difference</span><strong>Not yet known</strong></div></div></article>",
+      "css": ".ds-diagnosis{position:relative;overflow:hidden;border:1px solid var(--ink,#171813);border-radius:4px;background:var(--acid,#dfff3f);color:var(--ink,#171813);font:400 13px/1.6 Manrope,ui-sans-serif,sans-serif}.ds-copy{padding:38px 38px 28px}.ds-stamp{position:absolute;top:20px;right:-30px;width:145px;padding:5px 0;transform:rotate(42deg);background:var(--ink,#171813);color:var(--acid,#dfff3f);font-size:9px;font-weight:800;letter-spacing:.15em;text-align:center}.ds-diagnosis h2{max-width:17ch;margin:0 0 20px;font-size:clamp(34px,4.4vw,58px);font-weight:780;line-height:.98;letter-spacing:-.04em}.ds-diagnosis p{max-width:60ch;margin:0 0 8px}.ds-values{display:grid;grid-template-columns:repeat(3,1fr);background:var(--ink,#171813);color:var(--paper,#fffdf5)}.ds-values div{display:grid;gap:7px;padding:18px 20px 20px}.ds-values div+div{border-left:1px solid #4d4e46}.ds-values span{color:#bdb9ac;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}.ds-values strong{font-size:22px;font-weight:720;line-height:1.15;font-variant-numeric:tabular-nums}@media(max-width:760px){.ds-copy{padding:28px 22px 24px}.ds-stamp{display:none}.ds-values{grid-template-columns:1fr}.ds-values div{grid-template-columns:1fr auto;align-items:baseline;padding:14px 18px}.ds-values div+div{border-top:1px solid #4d4e46;border-left:0}}"
+    },
+    {
+      "name": "Next-Move Block",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "A dark work block that converts the diagnosis into one immediate action.",
+      "html": "<article class=\"ds-next-move\"><div class=\"ds-mark\"><span></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M5 21V4m0 2c5-4 9 4 14 0v9c-5 4-9-4-14 0\"/></svg></div><h2>Add cash and savings when you’re ready</h2><p>Optional balances help explain what needs attention today.</p><button>Add cash and savings</button></article>",
+      "css": ".ds-next-move{display:flex;min-height:390px;flex-direction:column;padding:28px;border:1px solid var(--ink,#171813);border-radius:4px;background:var(--ink,#171813);color:var(--paper,#fffdf5);font:400 12px/1.6 Manrope,ui-sans-serif,sans-serif}.ds-mark{display:flex;align-items:center;justify-content:space-between;margin-bottom:45px}.ds-mark span{width:72px;height:9px;background:var(--tomato,#f4573d)}.ds-mark svg{width:22px;height:22px;color:var(--acid,#dfff3f)}.ds-next-move h2{max-width:16ch;margin:0;font-size:clamp(25px,2.4vw,34px);font-weight:720;line-height:1.08;letter-spacing:-.035em}.ds-next-move p{color:#c8c5b9}.ds-next-move button{margin-top:auto;min-height:42px;border:1px solid var(--acid,#dfff3f);border-radius:2px;background:var(--acid,#dfff3f);color:var(--ink,#171813);font:760 12px Manrope,ui-sans-serif,sans-serif}.ds-next-move button:hover{background:var(--paper,#fffdf5);border-color:var(--paper,#fffdf5)}.ds-next-move button:focus-visible{outline:3px solid var(--blue,#3659d9);outline-offset:3px}"
+    },
+    {
+      "name": "Current Work Order",
+      "kind": "custom",
+      "description": "The active plan step presented as a marked paper instruction sheet.",
+      "html": "<section class=\"ds-work-order\"><span>CURRENT WORK ORDER</span><p class=\"ds-meta\">Step 1 of 15</p><h2>Complete your monthly picture</h2><p>Enter enough information to see what comes in and what must go out.</p><ol><li>Add dependable monthly income.</li><li>Add required monthly costs.</li></ol></section>",
+      "css": ".ds-work-order{padding:38px;border:1px solid var(--ink,#171813);border-radius:4px;background:var(--paper,#fffdf5);color:var(--ink,#171813);font:400 15px/1.55 Manrope,ui-sans-serif,sans-serif}.ds-work-order>span{display:inline-block;margin-bottom:26px;padding:5px 8px;background:var(--acid,#dfff3f);font-size:9px;font-weight:800;letter-spacing:.12em}.ds-meta{margin:0 0 14px;color:var(--muted,#615f54);font-size:12px}.ds-work-order h2{max-width:26ch;margin:0 0 16px;font-size:clamp(32px,4vw,49px);line-height:1.03;letter-spacing:-.04em}.ds-work-order li{margin-top:13px}.ds-work-order li::marker{color:var(--tomato,#f4573d)}@media(max-width:760px){.ds-work-order{padding:25px 20px}.ds-work-order h2{font-size:35px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Reset Ledger",
+    "overview": "The Reset Ledger makes financial triage feel like an authored household workbench rather than another pale software dashboard. Warm ledger paper, matte near-black ink, electric chartreuse, a single coral mark, and blue utility links create a practical world assembled from receipt stock, public-information posters, and marked-up monthly plans.\n\nThe hierarchy is intentionally blunt. Poster-scale diagnoses name the situation; a dark next-move block turns the answer into work; quieter ruled rows preserve the supporting trail. `styles.css` supplies the shared structure and print foundations, while `clarity.css` now carries this replacement visual world despite its legacy filename. Local Manrope and inline SVG are the only shipped visual assets; there are no raster images or external dependencies.",
+    "keyCharacteristics": [
+      "Warm, visibly ruled paper instead of a blank application canvas.",
+      "Near-black navigation and work-order surfaces with chartreuse active states.",
+      "Poster-scale headlines paired with compact receipt labels and tabular figures.",
+      "Flat, square-edged panels organized by solid and dashed rules.",
+      "One coral mark for urgency or progress, with blue reserved for utility and focus.",
+      "A brief clip/filter reveal after user-triggered navigation or setup changes; no initial entrance effect."
+    ],
+    "rules": [
+      { "name": "The One Highlighter Rule", "body": "Chartreuse names the active decision; it must not become general decoration.", "section": "colors" },
+      { "name": "The Meaning Before Color Rule", "body": "Every financial state needs words or a number as well as color.", "section": "colors" },
+      { "name": "The Comparable Figures Rule", "body": "Use tabular numerals for balances, totals, allocations, progress amounts, and financial summaries.", "section": "typography" },
+      { "name": "The Poster Then Receipt Rule", "body": "Large type states the diagnosis once; supporting details step down sharply into compact labels and ruled rows.", "section": "typography" },
+      { "name": "The Workbench Rule", "body": "If a surface can be separated with a rule, spacing, or stock color, it does not get a shadow.", "section": "elevation" },
+      { "name": "The Cut-Paper Rule", "body": "Do not introduce rounded SaaS cards, pills, glass panels, or decorative blobs. A pill shape is justified only by a genuinely circular marker or legacy semantic control.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do let one poster-scale diagnosis and one next move dominate the first viewport.",
+      "Do use chartreuse for the active decision, tomato for pressure or progress, and blue for links and focus.",
+      "Do preserve the ruled/grid canvas, hard rules, square utility controls, and receipt-like numerical trails.",
+      "Do keep unknown values visibly unknown and pair every semantic color with explicit language.",
+      "Do preserve local-only storage, responsive navigation, keyboard focus, reduced-motion behavior, and print output when extending the interface.",
+      "Do reuse local Manrope, inline SVG, and tabular numerals; no raster assets ship."
+    ],
+    "donts": [
+      "Don't restore the pale Clarity dashboard, cobalt primary buttons, slate rail, or rounded white card system.",
+      "Don't soften ordinary content into floating cards, broad shadows, pills, gradients, glass, or generic dashboard chrome.",
+      "Don't scatter chartreuse or coral across low-priority content; their rarity gives the hierarchy force.",
+      "Don't animate the initial page load or add continuous decorative motion.",
+      "Don't hide secondary tools, destructive consequences, required financial labels, or missing-data states on small screens."
+    ]
+  }
+}

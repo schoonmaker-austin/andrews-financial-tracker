@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0f4b3f">
+  <title>Financial Reset Planner · Design preview</title>
+  <link rel="stylesheet" href="../styles.css?v=design-preview-20260918">
+<link rel="stylesheet" href="preview.css?v=20260918-final2">
+<script src="theme.js?v=20260918-final2"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V6h6M9 18v-8h6M14 18v-4h6"/></svg></span>
+        <span>Financial Reset<br>Planner</span>
+      </div>
+      <nav class="nav-list">
+        <button class="nav-item is-active" data-nav="dashboard">Home</button>
+        <button class="nav-item" data-nav="setup">Quick setup</button>
+        <button class="nav-item" data-nav="spending">Spending</button>
+        <button class="nav-item" data-nav="debts">Debts</button>
+        <button class="nav-item" data-nav="plan">My plan</button>
+        <details class="nav-more">
+          <summary>More tools</summary>
+          <div>
+            <button class="nav-item" data-nav="snapshot">Cash &amp; upcoming dates</button>
+            <button class="nav-item" data-nav="income">Detailed income</button>
+            <button class="nav-item" data-nav="roadmap">90-day roadmap</button>
+            <button class="nav-item" data-nav="learn">Help &amp; weekly check-in</button>
+            <button class="nav-item" data-nav="report">Print or save plan</button>
+          </div>
+        </details>
+      </nav>
+      <div class="privacy-note"><span class="status-dot"></span> Fictional preview data</div>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <header class="topbar no-print">
+        <button class="mobile-menu" id="mobileMenu" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+        <div>
+          <strong id="pageTitle">Your financial reset</strong>
+          <span id="saveStatus" role="status">Saved locally</span>
+        </div>
+        <div class="top-actions">
+          <details class="data-menu">
+            <summary class="button button-quiet">Data &amp; backup</summary>
+            <div class="data-menu-panel">
+              <button class="button button-quiet" id="exportButton">Download backup</button>
+              <label class="button button-quiet file-button">Restore backup<input id="importInput" type="file" accept="application/json"></label>
+              <button class="button button-danger" id="resetButton">Start over</button>
+            </div>
+          </details>
+        </div>
+      </header>
+
+      <div class="mobile-nav no-print" id="mobileNav" hidden>
+        <div class="mobile-nav-links"></div>
+        <div class="mobile-data-actions">
+          <button class="button button-quiet" id="mobileImportButton">Import JSON</button>
+          <button class="button button-danger" id="mobileResetButton">Clear data</button>
+        </div>
+      </div>
+
+      <section class="view setup-view" data-view="setup">
+        <div class="setup-shell">
+          <div class="setup-intro">
+            <span class="setup-time">About 2 minutes</span>
+            <h1>Start with six rough numbers.</h1>
+            <p>You do not need every bill, balance, or interest rate. Estimates are fine, and anything you skip can be added later.</p>
+            <div class="setup-trust"><span class="status-dot"></span> Nothing leaves this device.</div>
+          </div>
+
+          <form id="quickSetupForm" class="quick-setup-form" novalidate>
+            <div class="setup-progress" aria-label="Setup progress">
+              <span id="setupStepLabel">Step 1 of 2</span>
+              <div class="setup-progress-track"><span id="setupProgressBar"></span></div>
+            </div>
+
+            <fieldset class="setup-step is-active" data-setup-step="1">
+              <legend>What do you have to work with?</legend>
+              <p class="step-help">Use take-home amounts. A best guess is useful; a blank field is allowed.</p>
+              <div class="setup-fields">
+                <label>Reliable monthly income <span class="field-hint">Use a cautious average</span><span class="money-input"><span>$</span><input name="dependable" inputmode="decimal" placeholder="For example, 3,200"></span></label>
+                <label>Money in checking today <span class="field-hint">The balance you can use now</span><span class="money-input"><span>$</span><input name="checking" inputmode="decimal" placeholder="For example, 450"></span></label>
+                <label>Emergency savings <span class="field-hint">Money you are trying not to touch</span><span class="money-input"><span>$</span><input name="savings" inputmode="decimal" placeholder="0 is okay"></span></label>
+              </div>
+              <div class="setup-actions">
+                <button class="button button-primary" type="button" id="setupNext">Next: monthly costs</button>
+                <button class="text-button" type="button" data-skip-setup>Skip setup for now</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="setup-step" data-setup-step="2" hidden>
+              <legend>What must be paid?</legend>
+              <p class="step-help">One rough total is enough. You can add individual bills later if you want.</p>
+              <div class="setup-fields">
+                <label>Essential monthly costs <span class="field-hint">Housing, food, utilities, insurance, transportation</span><span class="money-input"><span>$</span><input name="essentialTotal" inputmode="decimal" placeholder="Your best monthly estimate"></span></label>
+                <label>Minimum debt payments <span class="field-hint">The total minimum due each month</span><span class="money-input"><span>$</span><input name="debtMinimums" inputmode="decimal" placeholder="0 if none"></span></label>
+                <label>Overdue essentials right now <span class="field-hint">Unpaid rent or critical bills</span><span class="money-input"><span>$</span><input name="overdueTotal" inputmode="decimal" placeholder="0 if none"></span></label>
+              </div>
+              <div class="setup-actions">
+                <button class="button button-primary" type="submit">Show my starting plan</button>
+                <button class="button button-quiet" type="button" id="setupBack">Back</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+
+      <section class="view is-active" data-view="dashboard">
+        <div class="page-heading">
+          <div><h1>Your next move</h1><p>A clear picture of today. A practical plan for what comes next.</p></div>
+          <button class="button button-secondary" data-nav-jump="setup">Edit my numbers</button>
+        </div>
+
+        <div id="dashboardUnknown" class="notice notice-info" hidden></div>
+        <div class="hero-grid">
+          <article class="diagnosis-panel" id="diagnosisPanel">
+            <div class="diagnosis-copy">
+              <h2 id="stageName">Current diagnosis: start with your real numbers</h2>
+              <p class="diagnosis-lead" id="stageMessage">Add dependable income and required expenses to see your financial stage.</p>
+              <p id="stageReason">Nothing here is a grade. The goal is a clear next move.</p>
+            </div>
+            <div class="three-numbers" aria-label="Key diagnosis numbers">
+              <div><span>Dependable income</span><strong id="dashDependable">—</strong></div>
+              <div><span>Survival expenses</span><strong id="dashSurvival">—</strong></div>
+              <div><span>Monthly surplus / shortfall</span><strong id="dashSurplus">—</strong></div>
+            </div>
+          </article>
+          <article class="milestone-panel"><div class="milestone-header"><h2>Your next milestone</h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 21V3m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"/></svg></div>
+            <h3 id="milestoneName">Complete your starting snapshot</h3>
+            <div class="milestone-amount" id="previewMilestoneAmount"></div><div class="progress-track"><span id="milestoneProgress"></span></div>
+            <p id="milestoneCaption">Enter what you know. Unknown is allowed.</p>
+            <button class="button button-primary button-wide" data-nav-jump="setup">Update my numbers</button>
+          </article>
+        </div>
+
+        <article class="next-step-panel">
+          <div><h2>Do this next</h2><p>Small steps, in the right order.</p></div>
+          <ul id="todayActions"></ul><button class="text-button next-plan" data-nav-jump="plan">View my full plan <span aria-hidden="true">↗</span></button>
+        </article>
+
+        <section class="numbers-strip" aria-label="Financial snapshot">
+          <div><span>Money in checking</span><strong id="dashChecking">—</strong></div>
+          <div><span>Emergency savings</span><strong id="dashEmergency">—</strong></div>
+          <div><span>Known monthly spending</span><strong id="dashSpending">—</strong></div>
+          <div><span>Monthly breathing room</span><strong id="dashSafe">—</strong></div>
+        </section>
+      </section>
+
+      <section class="view" data-view="snapshot">
+        <div class="page-heading"><div><h1>Cash and upcoming dates</h1><p>Optional detail for a more exact next-paycheck plan. The quick setup is enough to get started.</p></div></div>
+        <form class="form-panel autosave-form" id="snapshotForm">
+          <div class="form-section"><h2>Money available now</h2><div class="field-grid four">
+            <label>Checking balance <span class="money-input"><span>$</span><input name="checking" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Savings balance <span class="money-input"><span>$</span><input name="savings" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Cash <span class="money-input"><span>$</span><input name="cash" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Other liquid savings <span class="money-input"><span>$</span><input name="otherLiquid" inputmode="decimal" placeholder="Unknown"></span></label>
+          </div></div>
+          <div class="form-section"><h2>What happens next</h2><div class="field-grid three">
+            <label>Next paycheck date <input name="nextPaycheckDate" type="date"></label>
+            <label>Expected next paycheck <span class="money-input"><span>$</span><input name="nextPaycheckAmount" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Rent due date <input name="rentDueDate" type="date"></label>
+            <label>Rent currently unpaid <span class="money-input"><span>$</span><input name="unpaidRent" inputmode="decimal" placeholder="0 or unknown"></span></label>
+            <label>Required bills overdue <span class="money-input"><span>$</span><input name="overdueBills" inputmode="decimal" placeholder="0 or unknown"></span></label>
+            <label>Upcoming major expenses <span class="money-input"><span>$</span><input name="upcomingMajorExpenses" inputmode="decimal" placeholder="0 or unknown"></span></label>
+          </div></div>
+        </form>
+        <div class="summary-band" id="snapshotSummary"></div>
+      </section>
+
+      <section class="view" data-view="income">
+        <div class="page-heading"><div><h1>Detailed income</h1><p>Optional detail for variable pay. Your quick-setup income remains the planning baseline.</p></div></div>
+        <form class="form-panel autosave-form" id="incomeForm"><div class="field-grid three">
+          <label>Minimum dependable monthly income <span class="money-input"><span>$</span><input name="dependable" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Average monthly income <span class="money-input"><span>$</span><input name="average" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Good-month estimate <span class="money-input"><span>$</span><input name="high" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Income received this month <span class="money-input"><span>$</span><input name="received" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Income still expected this month <span class="money-input"><span>$</span><input name="expected" inputmode="decimal" placeholder="Unknown"></span></label>
+        </div></form>
+        <details class="composer"><summary>Add an individual income entry</summary><form id="incomeEntryForm" class="inline-form">
+          <label>Type <select name="type"><option>Paycheck</option><option>Side work</option><option>Overtime</option><option>Piecework</option><option>Cash job</option><option>Other</option></select></label>
+          <label>Amount <span class="money-input"><span>$</span><input required name="amount" inputmode="decimal"></span></label>
+          <label>Date <input name="date" type="date"></label>
+          <label>Status <select name="status"><option value="received">Received</option><option value="expected">Expected</option></select></label>
+          <button class="button button-primary" type="submit">Add income</button>
+        </form></details>
+        <div id="incomeEntries" class="data-list"></div>
+      </section>
+
+      <section class="view" data-view="spending">
+        <div class="page-heading"><div><h1>Spending</h1><p>Start with the rough total from Quick setup. Add categories only when the extra detail will help you make a decision.</p></div></div>
+        <div id="spendingBaselineNotice" class="notice notice-info" hidden></div>
+        <div class="tab-row" role="tablist" aria-label="Spending views"><button class="tab is-active" id="expensesTab" role="tab" aria-selected="true" aria-controls="expensesPanel" tabindex="0" data-spending-tab="expenses">Monthly expenses</button><button class="tab" id="transactionsTab" role="tab" aria-selected="false" aria-controls="transactionsPanel" tabindex="-1" data-spending-tab="transactions">Transactions</button><button class="tab" id="auditTab" role="tab" aria-selected="false" aria-controls="auditPanel" tabindex="-1" data-spending-tab="audit">Spending audit</button></div>
+        <div id="expensesPanel" role="tabpanel" aria-labelledby="expensesTab" tabindex="0" data-spending-panel="expenses">
+          <details class="composer" open><summary>Add a monthly expense</summary><form id="expenseForm" class="inline-form wide">
+            <label>Category <select name="category" id="expenseCategory"></select></label>
+            <label>Custom name <input name="custom" placeholder="Only if Other"></label>
+            <label>Monthly amount <span class="money-input"><span>$</span><input name="amount" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Due day <input name="dueDate" type="number" min="1" max="31" placeholder="Optional"></label>
+            <label>Type <select name="classification"><option value="essential">Essential / survival</option><option value="flexible">Flexible but legitimate</option><option value="discretionary">Discretionary</option></select></label>
+            <label class="check-label"><input name="recurring" type="checkbox" checked> Recurring</label>
+            <label class="span-2">Notes <input name="notes" placeholder="Optional"></label>
+            <button class="button button-primary" type="submit">Add expense</button>
+          </form></details>
+          <div id="expenseList" class="data-list"></div>
+        </div>
+        <div id="transactionsPanel" role="tabpanel" aria-labelledby="transactionsTab" tabindex="0" data-spending-panel="transactions" hidden>
+          <details class="composer" open><summary>Add a transaction</summary><form id="transactionForm" class="inline-form">
+            <label>Description <input required name="name"></label>
+            <label>Category <input required name="category" placeholder="Restaurants, fuel…"></label>
+            <label>Amount <span class="money-input"><span>$</span><input required name="amount" inputmode="decimal"></span></label>
+            <label>Type <select name="classification"><option value="essential">Essential</option><option value="flexible">Flexible</option><option value="discretionary">Discretionary</option></select></label>
+            <label>Date <input name="date" type="date"></label>
+            <button class="button button-primary" type="submit">Add transaction</button>
+          </form></details>
+          <div id="transactionList" class="data-list"></div>
+        </div>
+        <div id="auditPanel" role="tabpanel" aria-labelledby="auditTab" tabindex="0" data-spending-panel="audit" hidden><div id="auditContent"></div></div>
+      </section>
+
+      <section class="view" data-view="debts">
+        <div class="page-heading"><div><h1>Debts</h1><p>This detail is optional at first. Add balances when you are ready to choose a payoff order.</p></div></div>
+        <div class="strategy-picker"><label><input type="radio" name="debtStrategy" value="avalanche" checked> <strong>Debt avalanche</strong><span>Highest interest rate first</span></label><label><input type="radio" name="debtStrategy" value="snowball"> <strong>Debt snowball</strong><span>Smallest balance first</span></label></div>
+        <details class="composer" open><summary>Add a debt or obligation</summary><form id="debtForm" class="inline-form wide">
+          <label>Debt name <input required name="name"></label><label>Creditor / person owed <input name="creditor"></label>
+          <label>Balance <span class="money-input"><span>$</span><input required name="balance" inputmode="decimal"></span></label>
+          <label>Interest rate <span class="suffix-input"><input name="rate" inputmode="decimal" placeholder="0"><span>%</span></span></label>
+          <label>Minimum payment <span class="money-input"><span>$</span><input name="minimum" inputmode="decimal" placeholder="0"></span></label>
+          <label>Due day <input name="dueDate" type="number" min="1" max="31"></label>
+          <label>Type <select name="type"><option>Credit card</option><option>Dental</option><option>Medical</option><option>Court/legal</option><option>Personal loan</option><option>Family loan</option><option>Auto</option><option>Other</option></select></label>
+          <label class="check-label"><input name="required" type="checkbox"> Required / legally sensitive</label>
+          <label class="check-label"><input name="interestBearing" type="checkbox"> Interest-bearing</label>
+          <label class="span-2">Notes <input name="notes"></label><button class="button button-primary" type="submit">Add debt</button>
+        </form></details>
+        <div id="debtSummary"></div><div id="debtList" class="data-list"></div>
+      </section>
+
+      <section class="view" data-view="plan">
+        <div class="page-heading"><div><h1>Your plan</h1><p>This updates automatically. Protect necessities first, then give the next available dollar one job.</p></div><button class="button button-secondary" data-generate>Print or save</button></div>
+        <div id="survivalMode"></div>
+        <div class="plan-grid"><article class="panel"><h2>Emergency fund</h2><div id="emergencyPlan"></div></article><article class="panel"><h2>Weekly spending plan</h2><div id="weeklyPlan"></div></article></div>
+        <div class="plan-grid"><article class="panel"><h2>Next paycheck</h2><div id="paycheckPlan"></div></article><article class="panel"><h2>Extra income rule</h2><div id="extraRule"></div></article></div>
+        <article class="panel"><div class="panel-heading"><div><h2>Sinking funds</h2><p>Expected expenses with unpredictable timing.</p></div></div>
+          <form id="sinkingForm" class="inline-form"><label>Category <select name="name"><option>Car repairs</option><option>Tires</option><option>Registration</option><option>Medical/dental</option><option>Christmas/gifts</option><option>Travel</option><option>Annual subscriptions</option><option>Tools/work equipment</option><option>Moving</option><option>Other</option></select></label><label>Monthly amount <span class="money-input"><span>$</span><input required name="monthly" inputmode="decimal"></span></label><button class="button button-secondary" type="submit">Add sinking fund</button></form>
+          <div id="sinkingList" class="data-list compact"></div>
+        </article>
+        <article class="panel social-panel"><div><h2>Dates and social life</h2><p>Decide what is affordable before spending, not after.</p></div><ul><li>Home-cooked dinner</li><li>Hiking or a park</li><li>Movie at home</li><li>Free community events</li><li>Coffee instead of dinner</li><li>Alternate who pays</li></ul></article>
+      </section>
+
+      <section class="view" data-view="roadmap">
+        <div class="page-heading"><div><h1>Your 30 / 60 / 90-day roadmap</h1><p>This roadmap changes with your actual stage and numbers.</p></div></div>
+        <div id="roadmapContent" class="roadmap"></div>
+        <article class="panel"><h2>Longer-term route</h2><div id="stageRoute" class="stage-route"></div></article>
+      </section>
+
+      <section class="view" data-view="learn">
+        <div class="page-heading"><div><h1>The rules</h1><p>A budget is permission to spend intentionally, not punishment.</p></div></div>
+        <div id="rulesList" class="rules-grid"></div>
+        <div class="page-heading subheading"><div><h1>Your 10-minute weekly check-in</h1><p>Ask: Am I financially better off than I was seven days ago?</p></div></div>
+        <div id="checkinList" class="checkin-list"></div>
+        <div class="page-heading subheading"><div><h1>Short, practical explanations</h1></div></div>
+        <div id="educationCards" class="education-grid"></div>
+      </section>
+
+      <section class="view report-view" data-view="report">
+        <div class="page-heading no-print"><div><h1>Printable financial reset plan</h1><p>Generate the report, then use your browser’s Print → Save as PDF.</p></div><div class="top-actions"><button class="button button-secondary" data-generate>Generate plan</button><button class="button button-primary" id="printButton">Print / save plan</button></div></div>
+        <article id="printReport" class="print-report"><div class="empty-report"><h2>No plan generated yet</h2><p>Add your numbers, then generate a plan. Missing information will be clearly marked instead of guessed.</p></div></article>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../logic.js?v=design-preview-20260918"></script>
+  <script src="demo-app.js?v=20260918-final2"></script><script src="preview.js?v=20260918-final2"></script>
+</body>
+</html>

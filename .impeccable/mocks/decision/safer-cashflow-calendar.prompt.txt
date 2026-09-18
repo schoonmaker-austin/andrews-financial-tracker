@@ -1,0 +1,1 @@
+Use case: ui-mockup. High-fidelity desktop first viewport for Financial Reset Planner in the Cashflow Calendar direction. Navy navigation, dominant fourteen-day cashflow timeline, dated paycheck and required-bill markers, Paydays, Bills due, Safe to spend, and cash-buffer milestone. Calm, familiar, accessible, with no photos, gradients, glass, external logos, or device frame.

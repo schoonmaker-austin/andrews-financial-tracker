@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#171813">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Andrew's Tracker">
+  <title>Andrew's Financial Tracker</title>
+  <link rel="manifest" href="app.webmanifest">
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css?v=reset-20260918-2">
+  <link rel="stylesheet" href="clarity.css?v=ledger-20260918-2">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V6h6M9 18v-8h6M14 18v-4h6"/></svg></span>
+        <span>Andrew's Financial<br>Tracker</span>
+      </div>
+      <nav class="nav-list">
+        <button class="nav-item is-active" data-nav="dashboard"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Home</button>
+        <button class="nav-item" data-nav="setup"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 17h16"/><circle cx="8" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></svg>Andrew's setup</button>
+        <button class="nav-item" data-nav="spending"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18m-13 5h3"/></svg>Andrew's spending</button>
+        <button class="nav-item" data-nav="debts"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6m-6 4h6"/></svg>Andrew's debts</button>
+        <button class="nav-item" data-nav="plan"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4H4v16h16V4h-3M9 3h6v4H9zM8 12h8m-8 4h5"/></svg>Andrew's plan</button>
+        <details class="nav-more">
+          <summary>More tools</summary>
+          <div>
+            <button class="nav-item" data-nav="snapshot">Andrew's cash &amp; dates</button>
+            <button class="nav-item" data-nav="income">Andrew's income</button>
+            <button class="nav-item" data-nav="roadmap">Andrew's progress</button>
+            <button class="nav-item" data-nav="learn">Andrew's money guide</button>
+            <button class="nav-item" data-nav="report">Andrew's printable plan</button>
+            <button class="nav-item nav-reset" data-reset>Reset all data</button>
+          </div>
+        </details>
+      </nav>
+      <div class="privacy-note" id="privacyNote"><span class="status-dot"></span><span id="privacyText">Saved on this device</span></div>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <header class="topbar no-print">
+        <button class="mobile-menu" id="mobileMenu" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+        <div>
+          <strong id="pageTitle">Andrew's Financial Tracker</strong>
+          <span id="saveStatus" role="status">Saved locally</span>
+        </div>
+        <div class="top-actions">
+          <button class="button button-sync" id="accountButton" type="button">Sync devices</button>
+          <details class="data-menu">
+            <summary class="button button-quiet">Data &amp; backup</summary>
+            <div class="data-menu-panel">
+              <button class="button button-quiet" id="exportButton">Download backup</button>
+              <label class="button button-quiet file-button">Restore backup<input id="importInput" type="file" accept="application/json"></label>
+              <button class="button button-danger" data-reset>Reset all data</button>
+            </div>
+          </details>
+        </div>
+      </header>
+
+      <div class="mobile-nav no-print" id="mobileNav" hidden>
+        <div class="mobile-nav-links"></div>
+        <div class="mobile-data-actions">
+          <button class="button button-quiet" id="mobileImportButton">Import JSON</button>
+        </div>
+      </div>
+
+      <section class="view setup-view" data-view="setup">
+        <div class="setup-shell monthly-setup">
+          <div class="setup-intro">
+            <h1>See Andrew's month clearly.</h1>
+            <p>Three short questions. Estimates are welcome, and you can skip anything.</p>
+            <div class="setup-trust" id="setupTrust"><span class="status-dot"></span><span>Saved in this browser. Sign in to use the same plan on every device.</span></div>
+          </div>
+          <form id="quickSetupForm" class="quick-setup-form" novalidate>
+            <div class="setup-progress" aria-label="Setup progress">
+              <span id="setupStepLabel">Question 1 of 3</span>
+              <div class="setup-progress-track"><span id="setupProgressBar"></span></div>
+            </div>
+            <fieldset class="setup-step is-active" data-setup-step="1">
+              <legend>What can Andrew count on earning each month?</legend>
+              <p class="step-help" id="incomeHint">Use your take-home pay after taxes. If pay varies, choose a lower month you can usually count on.</p>
+              <div class="setup-fields"><label>Andrew's monthly take-home income<span class="money-input"><span>$</span><input name="dependable" inputmode="decimal" placeholder="For example, 3,200" aria-describedby="incomeHint dependableError"></span></label></div>
+              <p class="field-error" id="dependableError" hidden></p>
+              <details class="estimate-help"><summary>I’m paid weekly or every two weeks</summary><p>For a monthly estimate, multiply weekly take-home pay by 4.33, or a paycheck received every two weeks by 2.17. Use a lower typical paycheck if your pay changes.</p></details>
+            </fieldset>
+            <fieldset class="setup-step" data-setup-step="2" hidden>
+              <legend>About how much do Andrew's essentials cost each month?</legend>
+              <p class="step-help" id="essentialHint">Include housing, groceries, utilities, insurance, and transportation. Leave debt payments out—we’ll ask about those next.</p>
+              <div class="setup-fields"><label>Andrew's essential monthly costs<span class="money-input"><span>$</span><input name="essentialTotal" inputmode="decimal" placeholder="A rough total is fine" aria-describedby="essentialHint essentialTotalError"></span></label></div>
+              <p class="field-error" id="essentialTotalError" hidden></p>
+              <p class="step-help">Your estimate stays in use while you add individual bills later.</p>
+            </fieldset>
+            <fieldset class="setup-step" data-setup-step="3" hidden>
+              <legend>What are Andrew's minimum debt payments each month?</legend>
+              <p class="step-help" id="debtHint">Add the minimum payments on cards, loans, and other debts. Count each payment once: leave out anything already included in your essential costs.</p>
+              <div class="setup-fields"><label>Andrew's monthly debt payments<span class="money-input"><span>$</span><input name="debtMinimums" inputmode="decimal" placeholder="0 if none" aria-describedby="debtHint debtMinimumsError"></span></label></div>
+              <p class="field-error" id="debtMinimumsError" hidden></p>
+              <button class="text-button" id="noDebtPayments" type="button">Andrew has no debt payments</button>
+            </fieldset>
+            <div class="setup-actions">
+              <button class="button button-primary" type="submit" id="setupNext">Continue</button>
+              <button class="button button-quiet" type="button" id="setupSkipQuestion">I’m not sure yet</button>
+              <button class="text-button" type="button" id="setupBack" hidden>Back</button>
+            </div>
+            <button class="text-button setup-exit" type="button" data-skip-setup>See Andrew's picture so far</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="view is-active" data-view="dashboard">
+        <div class="page-heading">
+          <div><h1>Andrew's monthly picture</h1><p>What comes in, what needs to go out, and what is still unknown.</p></div>
+          <button class="button button-secondary" data-nav-jump="setup">Edit Andrew's numbers</button>
+          <div class="overview-label">Monthly overview</div>
+        </div>
+
+        <aside class="install-card no-print" id="installCard" hidden>
+          <div>
+            <h2 id="installTitle">Install Andrew's tracker</h2>
+            <p id="installCopy">Open it from the Home Screen or Chromebook launcher like any other app.</p>
+          </div>
+          <button class="button button-secondary" id="installButton" type="button">Install this app</button>
+        </aside>
+
+        <div id="dashboardUnknown" class="notice notice-info" hidden></div>
+        <div class="hero-grid">
+          <article class="diagnosis-panel" id="diagnosisPanel">
+            <div class="diagnosis-copy">
+              <h2 id="stageName">Current diagnosis: start with Andrew's real numbers</h2>
+              <p class="diagnosis-lead" id="stageMessage">Add dependable income and required expenses to see Andrew's financial stage.</p>
+              <p id="stageReason">Nothing here is a grade. The goal is a clear next move.</p>
+            </div>
+            <div class="three-numbers" aria-label="Key diagnosis numbers">
+              <div><span>Andrew's monthly income</span><strong id="dashDependable">—</strong></div>
+              <div><span>Monthly costs + debt</span><strong id="dashSurvival">—</strong></div>
+              <div><span>Estimated difference</span><strong id="dashSurplus">—</strong></div>
+            </div>
+          </article>
+          <article class="milestone-panel"><div class="milestone-mark" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V3m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"/></svg></div>
+            <h2 id="milestoneName">Complete your starting snapshot</h2>
+            <div class="milestone-amount" id="milestoneAmount"></div><div class="progress-track" role="progressbar" aria-label="Emergency savings milestone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="milestoneProgressTrack"><span id="milestoneProgress"></span></div>
+            <p id="milestoneCaption">Enter what you know. Unknown is allowed.</p>
+            <button class="button button-primary button-wide" id="milestoneAction" data-nav-jump="snapshot">Add cash and savings</button>
+          </article>
+        </div>
+
+        <article class="next-step-panel">
+          <div><h2>Do this next</h2><p>Small steps, in the right order.</p></div>
+          <ul id="todayActions"></ul><button class="text-button next-plan" data-nav-jump="plan">Continue Andrew's action plan <svg class="link-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+        </article>
+
+        <section class="numbers-strip" aria-label="Financial snapshot">
+          <div><span>Money in checking</span><strong id="dashChecking">—</strong></div>
+          <div><span>Emergency savings</span><strong id="dashEmergency">—</strong></div>
+          <div><span>Known monthly spending</span><strong id="dashSpending">—</strong></div>
+          <div><span>After planned costs and savings</span><strong id="dashSafe">—</strong></div>
+        </section>
+      </section>
+
+      <section class="view" data-view="snapshot">
+        <div class="page-heading"><div><h1>Andrew's cash and upcoming dates</h1><p>Optional detail for a more exact next-paycheck plan. The quick setup is enough to get started.</p></div></div>
+        <form class="form-panel autosave-form" id="snapshotForm">
+          <div class="form-section"><h2>Money available now</h2><div class="field-grid four">
+            <label>Checking balance <span class="money-input"><span>$</span><input name="checking" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Savings balance <span class="money-input"><span>$</span><input name="savings" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Cash <span class="money-input"><span>$</span><input name="cash" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Other liquid savings <span class="money-input"><span>$</span><input name="otherLiquid" inputmode="decimal" placeholder="Unknown"></span></label>
+          </div></div>
+          <div class="form-section"><h2>What happens next</h2><div class="field-grid three">
+            <label>Next paycheck date <input name="nextPaycheckDate" type="date"></label>
+            <label>Expected next paycheck <span class="money-input"><span>$</span><input name="nextPaycheckAmount" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Rent due date <input name="rentDueDate" type="date"></label>
+            <label>Rent / mortgage overdue <span class="money-input"><span>$</span><input name="unpaidRent" inputmode="decimal" placeholder="0 or unknown"></span></label>
+            <label>Required bills overdue <span class="money-input"><span>$</span><input name="overdueBills" inputmode="decimal" placeholder="0 or unknown"></span></label>
+            <label>Upcoming major expenses <span class="money-input"><span>$</span><input name="upcomingMajorExpenses" inputmode="decimal" placeholder="0 or unknown"></span></label>
+          </div></div>
+        </form>
+        <div class="summary-band" id="snapshotSummary"></div>
+      </section>
+
+      <section class="view" data-view="income">
+        <div class="page-heading"><div><h1>Andrew's income</h1><p>Optional detail for variable pay. Andrew's quick-setup income remains the planning baseline.</p></div></div>
+        <div class="period-toolbar"><label for="incomePeriod">Month to review <input id="incomePeriod" type="month" data-tracking-period></label><p>Individual income entries and their totals use this month. Your dependable planning baseline stays separate.</p></div>
+        <form class="form-panel autosave-form" id="incomeForm"><div class="field-grid three">
+          <label>Minimum dependable monthly income <span class="money-input"><span>$</span><input name="dependable" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Average monthly income <span class="money-input"><span>$</span><input name="average" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Good-month estimate <span class="money-input"><span>$</span><input name="high" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Income received this month <span class="money-input"><span>$</span><input name="received" inputmode="decimal" placeholder="Unknown"></span></label>
+          <label>Income still expected this month <span class="money-input"><span>$</span><input name="expected" inputmode="decimal" placeholder="Unknown"></span></label>
+        </div></form>
+        <details class="composer"><summary>Add an individual income entry</summary><form id="incomeEntryForm" class="inline-form">
+          <label>Type <select name="type"><option>Paycheck</option><option>Side work</option><option>Overtime</option><option>Piecework</option><option>Cash job</option><option>Other</option></select></label>
+          <label>Amount <span class="money-input"><span>$</span><input required name="amount" inputmode="decimal"></span></label>
+          <label>Date <input name="date" type="date" required></label>
+          <label>Status <select name="status"><option value="received">Received</option><option value="expected">Expected</option></select></label>
+          <button class="button button-primary" type="submit">Add income</button>
+        </form></details>
+        <div id="incomePeriodSummary" class="summary-band period-summary"></div>
+        <div id="incomeEntries" class="data-list"></div>
+      </section>
+
+      <section class="view" data-view="spending">
+        <div class="page-heading"><div><h1>Andrew's spending</h1><p>Start with the rough total from Quick setup. Add categories only when the extra detail will help you make a decision.</p></div></div>
+        <div class="period-toolbar"><label for="spendingPeriod">Month to review <input id="spendingPeriod" type="month" data-tracking-period></label><p>Transactions and the spending audit use this month. Monthly expense estimates stay available when no transactions are recorded.</p></div>
+        <div id="spendingBaselineNotice" class="notice notice-info" hidden></div>
+        <div id="expenseSourceActions" class="source-actions"></div>
+        <div class="tab-row" role="tablist" aria-label="Spending views"><button class="tab is-active" id="expensesTab" role="tab" aria-selected="true" aria-controls="expensesPanel" tabindex="0" data-spending-tab="expenses">Monthly expenses</button><button class="tab" id="transactionsTab" role="tab" aria-selected="false" aria-controls="transactionsPanel" tabindex="-1" data-spending-tab="transactions">Transactions</button><button class="tab" id="auditTab" role="tab" aria-selected="false" aria-controls="auditPanel" tabindex="-1" data-spending-tab="audit">Spending audit</button></div>
+        <div id="expensesPanel" role="tabpanel" aria-labelledby="expensesTab" tabindex="0" data-spending-panel="expenses">
+          <details class="composer" open><summary>Add a monthly expense</summary><form id="expenseForm" class="inline-form wide">
+            <label>Category <select name="category" id="expenseCategory"></select></label>
+            <label>Custom name <input name="custom" placeholder="Only if Other"></label>
+            <label>Monthly amount <span class="money-input"><span>$</span><input name="amount" inputmode="decimal" placeholder="Unknown"></span></label>
+            <label>Due day <input name="dueDate" type="number" min="1" max="31" placeholder="Optional"></label>
+            <label>Type <select name="classification"><option value="essential">Essential / survival</option><option value="flexible">Flexible but legitimate</option><option value="discretionary">Discretionary</option></select></label>
+            <label class="check-label"><input name="recurring" type="checkbox" checked> Recurring</label>
+            <label class="span-2">Notes <input name="notes" placeholder="Optional"></label>
+            <button class="button button-primary" type="submit">Add expense</button><button class="button button-secondary" type="button" data-cancel-edit="expenses" hidden>Cancel edit</button>
+          </form></details>
+          <div id="expenseList" class="data-list"></div>
+        </div>
+        <div id="transactionsPanel" role="tabpanel" aria-labelledby="transactionsTab" tabindex="0" data-spending-panel="transactions" hidden>
+          <details class="composer" open><summary>Add a transaction</summary><form id="transactionForm" class="inline-form">
+            <label>Description <input required name="name"></label>
+            <label>Category <input required name="category" placeholder="Restaurants, fuel…"></label>
+            <label>Amount <span class="money-input"><span>$</span><input required name="amount" inputmode="decimal"></span></label>
+            <label>Type <select name="classification"><option value="essential">Essential</option><option value="flexible">Flexible</option><option value="discretionary">Discretionary</option></select></label>
+            <label>Date <input name="date" type="date" required></label>
+            <button class="button button-primary" type="submit">Add transaction</button>
+          </form></details>
+          <div id="transactionList" class="data-list"></div>
+        </div>
+        <div id="auditPanel" role="tabpanel" aria-labelledby="auditTab" tabindex="0" data-spending-panel="audit" hidden><div id="auditContent"></div></div>
+      </section>
+
+      <section class="view" data-view="debts">
+        <div class="page-heading"><div><h1>Andrew's debts</h1><p>This detail is optional at first. Add balances when you are ready to choose a payoff order.</p></div></div>
+        <div class="strategy-picker"><label><input type="radio" name="debtStrategy" value="avalanche" checked> <strong>Debt avalanche</strong><span>Highest interest rate first</span></label><label><input type="radio" name="debtStrategy" value="snowball"> <strong>Debt snowball</strong><span>Smallest balance first</span></label></div>
+        <details class="composer" open><summary>Add a debt or obligation</summary><form id="debtForm" class="inline-form wide">
+          <label>Debt name <input required name="name"></label><label>Creditor / person owed <input name="creditor"></label>
+          <label>Balance <span class="money-input"><span>$</span><input required name="balance" inputmode="decimal"></span></label>
+          <label>Interest rate <span class="suffix-input"><input name="rate" inputmode="decimal" placeholder="0"><span>%</span></span></label>
+          <label>Minimum payment <span class="money-input"><span>$</span><input name="minimum" inputmode="decimal" placeholder="0"></span></label>
+          <label>Due day <input name="dueDate" type="number" min="1" max="31"></label>
+          <label>Type <select name="type"><option>Credit card</option><option>Dental</option><option>Medical</option><option>Court/legal</option><option>Personal loan</option><option>Family loan</option><option>Auto</option><option>Other</option></select></label>
+          <label class="check-label"><input name="required" type="checkbox"> Required / legally sensitive</label>
+          <label class="check-label"><input name="interestBearing" type="checkbox"> Interest-bearing</label>
+          <label class="span-2">Notes <input name="notes"></label><button class="button button-primary" type="submit">Add debt</button><button class="button button-secondary" type="button" data-cancel-edit="debts" hidden>Cancel edit</button>
+        </form></details>
+        <div id="debtBaselineNotice" class="notice notice-info" hidden></div><div id="debtSourceActions" class="source-actions"></div>
+        <div id="debtSummary"></div><div id="debtList" class="data-list"></div>
+      </section>
+
+      <section class="view" data-view="plan">
+        <div class="page-heading"><div><h1>Andrew's action plan</h1><p>One useful step at a time. Andrew's progress is saved, and the plan changes with the numbers entered.</p></div><button class="button button-secondary" data-generate>Print Andrew's steps</button></div>
+        <div id="guidedPlan"></div>
+        <details class="planning-tools"><summary>Optional planning tools</summary>
+        <div id="survivalMode"></div>
+        <div class="plan-grid"><article class="panel"><h2>Emergency fund</h2><div id="emergencyPlan"></div></article><article class="panel"><h2>Weekly spending plan</h2><div id="weeklyPlan"></div></article></div>
+        <div class="plan-grid"><article class="panel"><h2>Next paycheck</h2><div id="paycheckPlan"></div></article><article class="panel"><h2>Extra income rule</h2><div id="extraRule"></div></article></div>
+        <article class="panel"><div class="panel-heading"><div><h2>Sinking funds</h2><p>Expected expenses with unpredictable timing.</p></div></div>
+          <form id="sinkingForm" class="inline-form"><label>Category <select name="name"><option>Car repairs</option><option>Tires</option><option>Registration</option><option>Medical/dental</option><option>Christmas/gifts</option><option>Travel</option><option>Annual subscriptions</option><option>Tools/work equipment</option><option>Moving</option><option>Other</option></select></label><label>Monthly amount <span class="money-input"><span>$</span><input required name="monthly" inputmode="decimal"></span></label><button class="button button-secondary" type="submit">Add sinking fund</button></form>
+          <div id="sinkingList" class="data-list compact"></div>
+        </article>
+        <article class="panel social-panel"><div><h2>Dates and social life</h2><p>Decide what is affordable before spending, not after.</p></div><ul><li>Home-cooked dinner</li><li>Hiking or a park</li><li>Movie at home</li><li>Free community events</li><li>Coffee instead of dinner</li><li>Alternate who pays</li></ul></article>
+        </details>
+      </section>
+
+      <section class="view" data-view="roadmap">
+        <div class="page-heading"><div><h1>Andrew's progress</h1><p>Completed steps, upcoming milestones, and Andrew's weekly check-ins.</p></div></div>
+        <div id="roadmapContent" class="roadmap"></div>
+        <div id="stageRoute"></div>
+      </section>
+
+      <section class="view" data-view="learn">
+        <div class="page-heading"><div><h1>Andrew's money rules</h1><p>A budget is permission to spend intentionally, not punishment.</p></div></div>
+        <div id="rulesList" class="rules-grid"></div>
+        <div class="page-heading subheading"><div><h1>Andrew's 10-minute weekly check-in</h1><p>Ask: Am I financially better off than I was seven days ago?</p></div></div>
+        <div id="checkinList" class="checkin-list"></div>
+        <div class="page-heading subheading"><div><h1>Andrew's quick money explanations</h1></div></div>
+        <div id="educationCards" class="education-grid"></div>
+      </section>
+
+      <section class="view report-view" data-view="report">
+        <div class="page-heading no-print"><div><h1>Andrew's printable financial plan</h1><p>Generate the report, then use your browser’s Print → Save as PDF.</p></div><div class="top-actions"><button class="button button-secondary" data-generate>Generate Andrew's plan</button><button class="button button-primary" id="printButton">Print / save Andrew's plan</button></div></div>
+        <article id="printReport" class="print-report"><div class="empty-report"><h2>No plan generated yet</h2><p>Add your numbers, then generate a plan. Missing information will be clearly marked instead of guessed.</p></div></article>
+      </section>
+    </main>
+  </div>
+  <dialog id="resetDialog" class="reset-dialog" aria-labelledby="resetTitle" aria-describedby="resetDescription resetWarning">
+    <h2 id="resetTitle">Delete all of Andrew's entered data?</h2>
+    <p id="resetDescription">This permanently deletes Andrew's income, expenses, debts, balances, notes, saved answers, action-plan progress, and check-in history from this browser.</p>
+    <p id="resetWarning" class="reset-warning">This cannot be undone. If device sync is on, the synced copy is also deleted. Download a backup first if you may need your data later.</p>
+    <button class="text-button" id="resetBackupButton" type="button">Download backup first</button>
+    <p id="resetError" class="field-error" role="alert" hidden></p>
+    <div class="reset-actions">
+      <button class="button button-secondary" id="cancelResetButton" type="button" autofocus>Cancel — keep Andrew's data</button>
+      <button class="button reset-confirm" id="confirmResetButton" type="button">Delete all data</button>
+    </div>
+  </dialog>
+  <dialog id="accountDialog" class="account-dialog" aria-labelledby="accountTitle" aria-describedby="accountIntro">
+    <button class="dialog-close" id="closeAccountDialog" type="button" aria-label="Close device sync">×</button>
+    <div id="signedOutAccount">
+      <h2 id="accountTitle">Use the same plan on every device</h2>
+      <p id="accountIntro">Sign in once on Andrew's iPhone, iPad, and Chromebook. Changes save here first, then sync securely when internet is available.</p>
+      <form id="accountForm" novalidate>
+        <label>Email <input id="accountEmail" name="email" type="email" inputmode="email" autocomplete="email" required></label>
+        <label>Password <input id="accountPassword" name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+        <p class="account-message" id="accountMessage" role="status" aria-live="polite"></p>
+        <div class="account-actions">
+          <button class="button button-primary" id="signInButton" type="submit">Sign in</button>
+          <button class="button button-secondary" id="createAccountButton" type="button">Create account</button>
+        </div>
+      </form>
+      <p class="account-privacy">No bank connection is added. Only the information entered in this tracker is synchronized.</p>
+    </div>
+    <div id="signedInAccount" hidden>
+      <h2>Device sync is on</h2>
+      <p id="signedInEmail"></p>
+      <div class="sync-state-card"><span class="status-dot"></span><strong id="dialogSyncStatus">Synced</strong><p id="dialogSyncDetail">This device has the newest saved plan.</p></div>
+      <button class="button button-secondary" id="syncNowButton" type="button">Sync now</button>
+      <button class="text-button" id="signOutButton" type="button">Sign out on this device</button>
+      <p class="account-privacy">Signing out leaves the current offline copy on this device. Use Reset all data if you also want to erase it.</p>
+    </div>
+  </dialog>
+  <dialog id="installDialog" class="install-dialog" aria-labelledby="installDialogTitle">
+    <button class="dialog-close" id="closeInstallDialog" type="button" aria-label="Close install instructions">×</button>
+    <h2 id="installDialogTitle">Install Andrew's tracker</h2>
+    <div id="installDeviceSteps"></div>
+    <p>The icon opens this tracker like an app. Use the same sign-in on each device to see the same plan.</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="logic.js?v=reset-20260918-1"></script>
+  <script src="action-plan.js?v=reset-20260918-1"></script>
+  <script src="cloud-config.js?v=sync-20260918-2"></script>
+  <script src="cloud-sync.js?v=sync-20260918-2"></script>
+  <script src="app.js?v=reset-20260918-2"></script>
+  <script src="pwa.js?v=pwa-20260918-2"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+{
+  "title": "Choose the visual world",
+  "question": "The features are fixed. Choose how the Financial Reset Planner should organize and communicate them.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Next-Dollar Line",
+      "kicker": "THE ROLL",
+      "lineage": "public transit control maps and station wayfinding",
+      "thesis": "Your money moves along one clear route, with today's stop and the next milestone always visible.",
+      "palette": ["#17324d", "#f4f1e9", "#da6a47", "#2d7d6e", "#e0a83b"],
+      "materials": ["route lines", "station markers", "enamel wayfinding signs"],
+      "viewport": "A compact control strip shows the current stage, protected dollars, safe-to-spend amount, and the next stop on one continuous recovery line.",
+      "risk": "The route metaphor must stay subordinate to the real numbers or it can feel too schematic.",
+      "raised": [
+        {"from": "orienteering map", "raise": "The active financial stage gets one unmistakable route color while the underlying numbers remain fixed truth."},
+        {"from": "monochrome product proof", "raise": "Every recommendation is paired directly with the number that proves it."},
+        {"from": "Miura fold", "raise": "Changing one input visibly propagates through every linked plan output."},
+        {"from": "iridescent edge", "raise": "Color is confined to state and progress edges, keeping the working surface calm."},
+        {"from": "teletext", "raise": "Dense information follows a strict, repeatable grid so it remains scannable."},
+        {"from": "data sublime", "raise": "Tabular figures align precisely and remain readable under high information density."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "side navigation", "x": 0, "y": 0, "w": 2, "h": 10, "accent": false},
+        {"label": "stage route", "x": 2, "y": 0, "w": 10, "h": 2, "accent": true},
+        {"label": "next dollar", "x": 2, "y": 2, "w": 6, "h": 4, "accent": true},
+        {"label": "key numbers", "x": 8, "y": 2, "w": 4, "h": 4, "accent": false},
+        {"label": "actions and progress", "x": 2, "y": 6, "w": 10, "h": 4, "accent": false}
+      ]},
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "The Working Ledger",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "field-service work orders and ruled household ledgers",
+      "thesis": "A trustworthy daily work sheet turns financial recovery into one practical job at a time.",
+      "palette": ["#20332f", "#f7f3e8", "#c85b3f", "#d7d1c1"],
+      "materials": ["heavy paper", "ruled rows", "stamped status marks"],
+      "viewport": "A dated work order leads with the diagnosis, this week's assignment, and a ruled table of protected money.",
+      "risk": "It is the most familiar and utilitarian direction, so it could feel less distinct if the typography is timid.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "ledger tabs", "x": 0, "y": 0, "w": 3, "h": 10, "accent": false},
+        {"label": "diagnosis stamp", "x": 3, "y": 0, "w": 9, "h": 2, "accent": true},
+        {"label": "weekly assignment", "x": 3, "y": 2, "w": 5, "h": 4, "accent": false},
+        {"label": "protected money", "x": 8, "y": 2, "w": 4, "h": 4, "accent": true},
+        {"label": "ruled plan", "x": 3, "y": 6, "w": 9, "h": 4, "accent": false}
+      ]},
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-orienteering",
+      "label": "Recovery Course Map",
+      "verdict": "competitive",
+      "lineage": "orienteering maps and control descriptions",
+      "thesis": "Financial facts form the terrain; the recovery plan is a numbered course through it.",
+      "palette": ["#f7f5e8", "#80683b", "#397f6c", "#385aa6", "#7b3fc6"],
+      "materials": ["contour lines", "map legend", "control circles"],
+      "viewport": "A map-like diagnosis plots current cash, obligations, and numbered recovery controls around the active stage.",
+      "case": "The route logic makes the sequence unusually clear, but the outdoor visual language is less immediately familiar for money management.",
+      "risk": "Too much map texture would compete with the numbers users came to understand.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "legend", "x": 0, "y": 0, "w": 3, "h": 10, "accent": false},
+        {"label": "current terrain", "x": 3, "y": 0, "w": 9, "h": 6, "accent": true},
+        {"label": "control descriptions", "x": 3, "y": 6, "w": 9, "h": 4, "accent": false}
+      ]},
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-orienteering-map-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/notation-diagram-systems-orienteering-map.webp",
+      "comp": ".impeccable/mocks/decision/challenger-orienteering.webp"
+    },
+    {
+      "id": "challenger-neutral",
+      "label": "Monochrome Proof",
+      "verdict": "declined",
+      "lineage": "restrained software product systems",
+      "thesis": "A neutral interface lets evidence sit immediately beside every recommendation.",
+      "palette": ["#fbfbfa", "#181817", "#6d6d68", "#315f57"],
+      "materials": ["hairline rules", "neutral panels", "single accent"],
+      "viewport": "The diagnosis and the calculations that prove it share a strict two-column frame.",
+      "case": "Clear but too close to the category's default product dashboard.",
+      "kept": "Every recommendation must show its supporting number.",
+      "risk": "Excellent restraint can become anonymity.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-monochrome-product-marketing-hero.webp"
+    },
+    {
+      "id": "challenger-miura",
+      "label": "Linked Recovery Sheet",
+      "verdict": "declined",
+      "lineage": "deployable Miura-fold structures",
+      "thesis": "One changed number unfolds through every connected plan output.",
+      "palette": ["#fbfaf7", "#252525", "#b49a54", "#b9d5dc"],
+      "materials": ["scored paper", "linked geometry", "gold foil markers"],
+      "viewport": "A compact diagnosis expands into linked monthly, weekly, and milestone panels.",
+      "case": "Its linked-state logic is strong, but the aerospace material is remote from the user's daily financial life.",
+      "kept": "Input changes must visibly propagate through the whole plan.",
+      "risk": "Diagonal geometry can weaken form scanning and mobile usability.",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-miura-orbit-sheet-hero.webp"
+    },
+    {
+      "id": "challenger-cloud",
+      "label": "Iridescent Threshold",
+      "verdict": "declined",
+      "lineage": "iridescent cloud edges",
+      "thesis": "A nearly neutral working surface uses a narrow spectral edge to signal changing financial state.",
+      "palette": ["#fafaf8", "#35414a", "#79b9a5", "#d6a1a9", "#8b75bb"],
+      "materials": ["white field", "hairline color bands", "soft state edges"],
+      "viewport": "A quiet diagnosis surface gains a narrow color edge as cash flow moves from crisis toward stability.",
+      "case": "Calm and humane, but it communicates mood more readily than the next concrete action.",
+      "kept": "Color stays confined to progress and state edges.",
+      "risk": "Subtle bands may not carry enough operational hierarchy alone.",
+      "hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+    },
+    {
+      "id": "challenger-teletext",
+      "label": "Money Pages",
+      "verdict": "declined",
+      "lineage": "broadcast teletext magazines",
+      "thesis": "Every financial task occupies a numbered page in an exact character grid.",
+      "palette": ["#111111", "#f5f4ef", "#f0ca3e", "#43b8c3", "#ce5147"],
+      "materials": ["character cells", "block mosaics", "broadcast status flags"],
+      "viewport": "A numbered index routes directly to diagnosis, weekly limits, debts, and the plan.",
+      "case": "The structure is direct, but the retro screen language risks novelty and visual fatigue.",
+      "kept": "Dense content uses a repeatable grid and direct numbered access.",
+      "risk": "The rigid black screen conflicts with the requested calm, accessible tone.",
+      "hero": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service-hero.webp"
+    },
+    {
+      "id": "challenger-data",
+      "label": "Cashflow Instrument",
+      "verdict": "declined",
+      "lineage": "black-and-white data installations",
+      "thesis": "Cash flow becomes a precise field of aligned values and selectable bands.",
+      "palette": ["#ffffff", "#000000"],
+      "materials": ["hairline bars", "tabular numerics", "pixel-crisp rules"],
+      "viewport": "A high-contrast monthly cashflow field isolates the shortfall or surplus and its contributing categories.",
+      "case": "Numerically precise but emotionally too severe for a person already under financial pressure.",
+      "kept": "Numbers align exactly and remain legible at high density.",
+      "risk": "The austerity can read as punishment rather than practical support.",
+      "hero": "https://impeccable.style/worlds/cards/ikeda-datamatics-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": true},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A conventional personal-finance dashboard executed with excellent clarity.",
+    "palette": ["#ffffff", "#1f2937", "#16866f", "#eef2f1"],
+    "materials": ["clean cards", "soft shadows", "simple charts"],
+    "viewport": "A top bar, summary-card grid, progress rings, and familiar sidebar navigation.",
+    "risk": "Immediately understandable but intentionally hard to distinguish from other budgeting tools.",
+    "wireframe": {"cols": 12, "rows": 10, "regions": [
+      {"label": "sidebar", "x": 0, "y": 0, "w": 2, "h": 10, "accent": false},
+      {"label": "summary cards", "x": 2, "y": 0, "w": 10, "h": 3, "accent": true},
+      {"label": "charts", "x": 2, "y": 3, "w": 6, "h": 4, "accent": false},
+      {"label": "progress", "x": 8, "y": 3, "w": 4, "h": 4, "accent": false},
+      {"label": "recent activity", "x": 2, "y": 7, "w": 10, "h": 3, "accent": false}
+    ]},
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}
