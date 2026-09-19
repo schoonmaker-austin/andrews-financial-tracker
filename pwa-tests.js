@@ -17,6 +17,8 @@ assert.match(html, /viewport-fit=cover/);
 assert.match(html, /apple-touch-icon/);
 assert.match(html, /cloud-sync\.js/);
 assert.match(html, /pwa\.js/);
+assert.match(html, /First time\?/);
+assert.ok(html.indexOf('id="createAccountButton"') < html.indexOf('id="signInButton"'), "Create account should be the first action for a new user");
 
 const worker = fs.readFileSync(path.join(root, "sw.js"), "utf8");
 assert.match(worker, /app\.webmanifest/);

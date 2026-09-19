@@ -169,7 +169,12 @@
         notify("Device sync is on. Andrew's newest plan will appear everywhere he signs in.");
       }
     } catch (error) {
-      setAccountMessage(error.message || "Device sync could not sign in. Check the email and password, then try again.");
+      const message = String(error?.message || "");
+      if (mode === "signin" && /invalid login credentials/i.test(message)) {
+        setAccountMessage("That email and password do not match a tracker account. If this is your first time, choose Create account. Otherwise, check the password and confirm the email first.");
+      } else {
+        setAccountMessage(message || "Device sync could not sign in. Check the email and password, then try again.");
+      }
     } finally {
       buttons.forEach(button => { button.disabled = false; });
     }

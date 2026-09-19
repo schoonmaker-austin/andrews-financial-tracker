@@ -310,14 +310,14 @@
     <button class="dialog-close" id="closeAccountDialog" type="button" aria-label="Close device sync">×</button>
     <div id="signedOutAccount">
       <h2 id="accountTitle">Use the same plan on every device</h2>
-      <p id="accountIntro">Sign in once on Andrew's iPhone, iPad, and Chromebook. Changes save here first, then sync securely when internet is available.</p>
+      <p id="accountIntro"><strong>First time?</strong> Enter an email and a new password, then choose Create account. Already confirmed the account? Choose Sign in.</p>
       <form id="accountForm" novalidate>
         <label>Email <input id="accountEmail" name="email" type="email" inputmode="email" autocomplete="email" required></label>
         <label>Password <input id="accountPassword" name="password" type="password" autocomplete="current-password" minlength="8" required></label>
         <p class="account-message" id="accountMessage" role="status" aria-live="polite"></p>
         <div class="account-actions">
-          <button class="button button-primary" id="signInButton" type="submit">Sign in</button>
-          <button class="button button-secondary" id="createAccountButton" type="button">Create account</button>
+          <button class="button button-primary" id="createAccountButton" type="button">Create account</button>
+          <button class="button button-secondary" id="signInButton" type="submit">Sign in</button>
         </div>
       </form>
       <p class="account-privacy">No bank connection is added. Only the information entered in this tracker is synchronized.</p>
@@ -342,7 +342,7 @@
   <script src="action-plan.js?v=reset-20260918-1"></script>
   <script src="cloud-config.js?v=sync-20260918-4"></script>
   <script src="cloud-sync.js?v=sync-20260918-3"></script>
-  <script src="app.js?v=reset-20260918-3"></script>
+  <script src="app.js?v=reset-20260919-4"></script>
   <script src="pwa.js?v=pwa-20260919-4"></script>
 </body>
 </html>
