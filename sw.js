@@ -1,4 +1,4 @@
-const CACHE_NAME = "andrews-tracker-v3";
+const CACHE_NAME = "andrews-tracker-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,7 +6,7 @@ const APP_SHELL = [
   "./clarity.css?v=ledger-20260918-3",
   "./logic.js?v=reset-20260918-1",
   "./action-plan.js?v=reset-20260918-1",
-  "./cloud-config.js?v=sync-20260918-3",
+  "./cloud-config.js?v=sync-20260918-4",
   "./cloud-sync.js?v=sync-20260918-3",
   "./pwa.js?v=pwa-20260918-3",
   "./app.js?v=reset-20260918-3",
