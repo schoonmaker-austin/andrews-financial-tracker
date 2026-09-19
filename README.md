@@ -120,9 +120,13 @@ Generate the plan, open **Printable plan**, then choose **Print / save plan**. P
 
 The application remains local-only when the two public configuration values are blank.
 
-## Publish with GitHub Pages
+## Published address
 
-The included `.github/workflows/pages.yml` runs every test, copies only the runtime files into the public artifact, and publishes the HTTPS site from `main`. The source repository can remain private. Financial entries are never committed to the repository.
+The app is published from `main` at:
+
+`https://schoonmaker-austin.github.io/andrews-financial-tracker/`
+
+GitHub's free Pages plan requires this source repository to be public. The repository contains application code and fictional test cases only. Financial entries and account sessions stay in the user's browser and configured Supabase project; they are never committed to GitHub.
 
 ## Run the tests
 

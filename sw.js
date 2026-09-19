@@ -1,15 +1,15 @@
-const CACHE_NAME = "andrews-tracker-v2";
+const CACHE_NAME = "andrews-tracker-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=reset-20260918-2",
-  "./clarity.css?v=ledger-20260918-2",
+  "./styles.css?v=reset-20260918-3",
+  "./clarity.css?v=ledger-20260918-3",
   "./logic.js?v=reset-20260918-1",
   "./action-plan.js?v=reset-20260918-1",
-  "./cloud-config.js?v=sync-20260918-2",
-  "./cloud-sync.js?v=sync-20260918-2",
-  "./pwa.js?v=pwa-20260918-2",
-  "./app.js?v=reset-20260918-2",
+  "./cloud-config.js?v=sync-20260918-3",
+  "./cloud-sync.js?v=sync-20260918-3",
+  "./pwa.js?v=pwa-20260918-3",
+  "./app.js?v=reset-20260918-3",
   "./app.webmanifest",
   "./assets/Manrope-Variable.ttf",
   "./assets/icon-192.png",
