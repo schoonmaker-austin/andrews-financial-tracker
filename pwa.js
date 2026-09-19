@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  const LIVE_APP_URL = "https://schoonmaker-austin.github.io/andrews-financial-tracker/";
+  if (window.location.protocol === "file:") {
+    window.location.replace(LIVE_APP_URL);
+    return;
+  }
+
   let installPrompt = null;
   const $ = selector => document.querySelector(selector);
 
